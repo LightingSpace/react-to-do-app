@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'ansonregular';
+  src: url('/src/fonts/AnsonFont/anson-regular-webfont.eot');
+  src: url('/src/fonts/AnsonFont/anson-regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('/src/fonts/AnsonFont/anson-regular-webfont.woff') format('woff'),
+    url('/src/fonts/AnsonFont/anson-regular-webfont.ttf') format('truetype'),
+    url('/src/fonts/AnsonFont/anson-regular-webfont.svg#ansonregular')
+      format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  counter-reset: mainCounter;
+}
+
+h1 {
+  font-family: ansonregular;
+  font-weight: bold;
+  color: rgb(168, 72, 72);
+  text-shadow: 0px 4px 7px #6f386c;
+  text-transform: uppercase;
+}
+
+.inputtest {
+  background-color: blue;
+  font-size: 2rem;
+}
+
+.button {
+  padding: 1rem;
+}
+
+.global-class-name {
+  position: relative;
+  left: 1rem;
+  top: 0.3rem;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  font-family: ansonregular;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: left;
+  border-bottom: 1px solid rgb(163, 78, 78);
+  max-width: 25rem;
+  margin: auto;
+}
+
+li:before {
+  counter-increment: mainCounter;
+  content: counter(mainCounter);
+  color: red;
+  font-size: 0.8rem;
+  margin-right: 2rem;
+  border-radius: 3px;
+  border: 1px solid blue;
+  padding: 0.2rem;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+li div {
+  position: absolute;
+  right: 1rem;
+}
