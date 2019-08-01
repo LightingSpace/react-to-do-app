@@ -11,6 +11,8 @@
   font-style: normal;
 }
 
+/* to jest od redux */
+
 body {
   counter-reset: mainCounter;
 }
