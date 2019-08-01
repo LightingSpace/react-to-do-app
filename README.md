@@ -1,3 +1,10 @@
+# THIS IS A TO DO APPLICATION MADE IN REACT
+
+#### it has been done by creating react-nano-app
+
+![GitHub Logo](to-do-app.PNG)
+Format: ![Alt To-Do-React-application](url)
+
 # nano-react-app-template
 
 The template project for [nano-react-app](https://github.com/adrianmcli/nano-react-app).
@@ -24,7 +31,7 @@ parcel index.html -p 3000
 You can use CSS files with simple ES2015 `import` statements in your Javascript:
 
 ```js
-import "./index.css";
+import './index.css';
 ```
 
 ## Babel transforms
