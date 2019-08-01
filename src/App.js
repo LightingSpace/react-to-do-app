@@ -6,6 +6,8 @@ import styled from 'styled-components';
 // tylko tak mozna importowac jednak styled modyles nie dzialaja
 //import styles from '/Styler.css';
 
+import { connect } from 'react-redux';
+
 import '/Styler.css';
 
 //import Icon from "react-native-vector-icons/Fonts/Ionicons.ttf";
@@ -33,47 +35,20 @@ const Button = styled.button`
   }
 `;
 
-export default () => {
-  let [task, setTask] = useState('');
-  let [taskList, setTaskList] = useState([]);
-  function changeTask(e) {
-    setTask((task = e.target.value));
-    console.log(task);
-  }
-
-  function addTask() {
-    setTaskList([...taskList, task]);
-    setTask((task = ''));
-    console.log(taskList);
-  }
-
-  function randomNum() {
-    //  return (Math.random() * 1000).toFixed(0);
-    return 'ds';
-  }
-
-  function removeItem(index) {
-    //console.log(index.target.parentNode.id);
-    const indexToRemove = index.currentTarget.parentNode.id;
-    console.log('TO wskazuje index :', index.currentTarget);
-    console.log('Index to remove : ', indexToRemove);
-    setTaskList(taskList.filter((elem, index) => index != indexToRemove));
-    console.log('Show taskList : ', taskList);
-  }
-
+function App(props) {
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>Your First To-DO app</h1>
       <hr />
-      <Input onChange={e => changeTask(e)} value={task} />
-      <Button onClick={addTask}>Add Task</Button>
+      <Input onChange={e => props.changeTask(e)} value={props.task} />
+      <Button onClick={props.addTask}>Add Task</Button>
       <ul>
-        {taskList.map((task, index) => (
+        {props.taskList.map((task, index) => (
           <li title="Remove item from todo list" id={index}>
             {task}
             <div
               style={{ display: 'inline-block', cursor: 'pointer' }}
-              onClick={index => removeItem(index)}
+              onClick={index => props.removeItem(index)}
             >
               <IconContext.Provider
                 value={{
@@ -89,4 +64,24 @@ export default () => {
       </ul>
     </div>
   );
+}
+
+const stateToProps = state => {
+  return {
+    task: state.task,
+    taskList: state.taskList
+  };
 };
+
+const dispatchToProps = dispatch => {
+  return {
+    addTask: () => dispatch({ type: 'Add_Task' }),
+    changeTask: e => dispatch({ type: 'Change_Task', value: e }),
+    removeItem: e => dispatch({ type: 'Remove_Item', value: e })
+  };
+};
+
+export default connect(
+  stateToProps,
+  dispatchToProps
+)(App);
