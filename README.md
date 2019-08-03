@@ -1,9 +1,13 @@
 # THIS IS A TO DO APPLICATION MADE IN REACT
 
-#### it has been done by creating react-nano-app
+#### Initial Project created by react-nano-app
+
+##### Master Branch --> Clean React
+
+##### todoRedux --> converted to use Redux
 
 ![GitHub Logo](to-do-app.PNG)
-Format: ![Alt To-Do-React-application](url)
+Link-To-Project: ![Alt To-Do-React-application](url)
 
 # nano-react-app-template
 
